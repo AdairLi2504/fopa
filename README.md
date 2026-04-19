@@ -71,10 +71,10 @@ var Filler = "_"
 // FUNCTIONS
 
 func Clean(path string) string
-    Sanitize and Redux a filepath
+    Sanitize and Redux a dir/file
 
 func Cleanf(path, fill string) string
-    Sanitize and Redux a filepath, with a format string
+    Sanitize and Redux a dir/file, with a format string
 
 func ForbiddenChars() []string
     ForbiddenChars returns a slice of the characters this library forbids
@@ -89,13 +89,13 @@ func Reduxf(path, fill string) string
     Redux removes runs of the fill character, with a format string
 
 func Sanitize(path string) string
-    remove illegal characters from a file path
+    remove illegal characters from a dir/file name
 
-func Sanitizef(path, fill string) string
-    remove illegal characters from a file path
+func Sanitizef(name, fill string) string
+    remove illegal characters from a dir/file name, with a format string
 
 func SplitClean(path string) string
-    SplitClean splits the path before cleaning each segment
+    SplitClean cleans a file path and splits the path before cleaning each segment
 ```
 
 ## Forbidden Characters

@@ -8,14 +8,14 @@ import (
 
 var Filler = "_"
 
-// remove illegal characters from a file path
-func Sanitize(path string) string {
-	return Sanitizef(path, Filler)
+// remove illegal characters from a dir/file name
+func Sanitize(name string) string {
+	return Sanitizef(name, Filler)
 }
 
-// remove illegal characters from a file path
-func Sanitizef(path, fill string) string {
-	return sanitizef(path, fill)
+// remove illegal characters from a dir/file name, with a format string
+func Sanitizef(name, fill string) string {
+	return sanitizef(name, fill)
 }
 
 // Redux remove runs of the fill character
@@ -28,14 +28,14 @@ func Reduxf(path, fill string) string {
 	return reduxf(path, fill)
 }
 
-// Sanitize and Redux a filepath
-func Clean(path string) string {
-	return Cleanf(path, Filler)
+// Sanitize and Redux a dir/file
+func Clean(name string) string {
+	return Cleanf(name, Filler)
 }
 
-// Sanitize and Redux a filepath, with a format string
-func Cleanf(path, fill string) string {
-	return cleanf(path, fill)
+// Sanitize and Redux a dir/file, with a format string
+func Cleanf(name, fill string) string {
+	return cleanf(name, fill)
 }
 
 // // ForbiddenRules returns a slice of Symbol x Description pairs.
@@ -55,6 +55,7 @@ func ForbiddenChars() []string {
 }
 
 // SplitClean splits the path before cleaning each segment
+// and cleans a file path
 func SplitClean(path string) string {
 	parts := filepath.SplitList(path)
 	for i, part := range parts {
